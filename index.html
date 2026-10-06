@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sahil Siyan | Cloud, Linux and DevOps portfolio">
+  <title>Sahil Siyan | Cloud & DevOps</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121a2d;
+      --text: #eef2ff;
+      --muted: #a9b3c9;
+      --accent: #38bdf8;
+      --accent2: #818cf8;
+      --line: rgba(255,255,255,.10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      background: rgba(11,16,32,.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navin {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo { font-size: 20px; font-weight: 800; }
+    .logo span { color: var(--accent); }
+
+    .links { display: flex; gap: 24px; }
+    .links a { color: var(--muted); font-size: 14px; }
+    .links a:hover { color: var(--text); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 120px 24px 80px;
+    }
+
+    .heroBox { max-width: 780px; }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid rgba(56,189,248,.35);
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(56,189,248,.08);
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 8vw, 78px);
+      line-height: 1.03;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      font-weight: 700;
+    }
+
+    .button.primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #07111f;
+      border: none;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 24px;
+    }
+
+    .title {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 35px;
+    }
+
+    .about {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill, .project, .education, .training {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .skill h3, .project h3, .education h3, .training h3 {
+      margin-bottom: 9px;
+    }
+
+    .skill p, .project p, .education p, .training p {
+      color: var(--muted);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .projectNumber {
+      color: var(--accent);
+      font-size: 13px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .education, .training {
+      margin-bottom: 16px;
+    }
+
+    .contactBox {
+      background: linear-gradient(135deg, rgba(56,189,248,.10), rgba(129,140,248,.10));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 35px;
+    }
+
+    .contactItems {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .contactItems a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+    }
+
+    .contactItems a:hover { color: var(--text); }
+
+    footer {
+      text-align: center;
+      padding: 30px 24px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .links { display: none; }
+      .skills, .projects { grid-template-columns: 1fr; }
+      section { padding: 70px 20px; }
+      .hero { padding-left: 20px; padding-right: 20px; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="navin">
+      <a class="logo" href="#home">Sahil<span>.</span></a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="home">
+      <div class="heroBox">
+        <div class="tag">Computer Science Graduate</div>
+        <h1>Sahil <span>Siyan</span></h1>
+        <p class="intro">
+          AWS and Linux focused Computer Science graduate with foundational knowledge
+          in cloud computing, DevOps, Python programming, Linux administration,
+          networking and cloud infrastructure.
+        </p>
+        <div class="buttons">
+          <a class="button primary" href="#projects">View Projects</a>
+          <a class="button" href="Sahil_Siyan_Resume.pdf" target="_blank">View Resume</a>
+          <a class="button" href="mailto:Sahilsiyann@gmail.com">Contact Me</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2 class="title">About Me</h2>
+      <p class="subtitle">Cloud, Linux and infrastructure focused.</p>
+      <p class="about">
+        I am a B.Tech Computer Science Engineering graduate interested in cloud
+        infrastructure, Linux administration, automation and DevOps. My hands on
+        learning includes AWS services such as EC2, S3, IAM, VPC, Lambda, RDS and
+        CloudWatch, along with Linux, Python, Git and basic networking.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2 class="title">Technical Skills</h2>
+      <p class="subtitle">Technologies and fundamentals I work with.</p>
+
+      <div class="skills">
+        <div class="skill">
+          <h3>AWS</h3>
+          <p>EC2, S3, IAM, VPC, Lambda, RDS, CloudWatch</p>
+        </div>
+        <div class="skill">
+          <h3>DevOps & Tools</h3>
+          <p>Linux commands, Git fundamentals and DevOps basics</p>
+        </div>
+        <div class="skill">
+          <h3>Programming</h3>
+          <p>Python, Java, C</p>
+        </div>
+        <div class="skill">
+          <h3>Operating Systems</h3>
+          <p>Linux with RHEL basics and Windows</p>
+        </div>
+        <div class="skill">
+          <h3>Networking</h3>
+          <p>TCP/IP, SSH and DNS basics</p>
+        </div>
+        <div class="skill">
+          <h3>Web</h3>
+          <p>HTML and CSS</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="title">Projects</h2>
+      <p class="subtitle">Academic and personal projects from my cloud and DevOps learning.</p>
+
+      <div class="projects">
+        <article class="project">
+          <div class="projectNumber">01</div>
+          <h3>AWS Cloud Infrastructure Setup</h3>
+          <p>
+            Created and managed EC2 instances, configured IAM roles, worked with
+            VPC networking and monitored resources using CloudWatch.
+          </p>
+        </article>
+
+        <article class="project">
+          <div class="projectNumber">02</div>
+          <h3>Linux Automation Scripts</h3>
+          <p>
+            Developed basic Bash and Python scripts for file backup, log monitoring
+            and system maintenance tasks.
+          </p>
+        </article>
+
+        <article class="project">
+          <div class="projectNumber">03</div>
+          <h3>Static Website Deployment</h3>
+          <p>
+            Designed and hosted a simple website using HTML and CSS with cloud
+            hosting concepts.
+          </p>
+        </article>
+
+        <article class="project">
+          <div class="projectNumber">04</div>
+          <h3>DevOps Learning Environment</h3>
+          <p>
+            Practiced Linux administration and introductory DevOps workflows
+            including Git and server management.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="title">Education & Training</h2>
+      <p class="subtitle">Academic background and professional learning.</p>
+
+      <div class="education">
+        <h3>B.Tech in Computer Science Engineering</h3>
+        <p>APJ Abdul Kalam Technological University, Kerala</p>
+        <p>CGPA: 7.17/10 | 2021 to 2025</p>
+      </div>
+
+      <div class="training">
+        <h3>AWS & Linux / DevOps Training</h3>
+        <p>
+          AWS Cloud Computing coursework covering EC2, S3, IAM, VPC, Lambda, RDS
+          and CloudWatch, along with beginner level DevOps and Linux administration.
+        </p>
+      </div>
+
+      <div class="training">
+        <h3>Internships & Workshops</h3>
+        <p>
+          Data Science internship at PACE LAB, Artificial Intelligence and Machine
+          Learning internship at ICT Academy, Python bootcamp, and Cyber Security
+          and Ethical Hacking workshop.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contactBox">
+        <h2 class="title">Let's Connect</h2>
+        <p class="subtitle">
+          Open to entry level opportunities in Cloud, Linux, DevOps and related IT roles.
+        </p>
+        <div class="contactItems">
+          <a href="mailto:Sahilsiyann@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/sahilsiyan" target="_blank">LinkedIn</a>
+          <a href="Sahil_Siyan_Resume.pdf" target="_blank">Resume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Sahil Siyan
+  </footer>
+
+</body>
+</html>
