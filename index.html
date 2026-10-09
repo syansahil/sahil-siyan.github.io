@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,20 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Sahil Siyan | Cloud, Linux and DevOps portfolio">
   <title>Sahil Siyan | Cloud & DevOps</title>
+
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #121a2d;
-      --text: #eef2ff;
-      --muted: #a9b3c9;
-      --accent: #38bdf8;
-      --accent2: #818cf8;
-      --line: rgba(255,255,255,.10);
+      --bg: #000000;
+      --card: #0d1117;
+      --text: #f0f6fc;
+      --muted: #aab6c5;
+      --accent: #22d3ee;
+      --accent2: #3b82f6;
+      --line: rgba(255, 255, 255, 0.12);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -27,14 +35,17 @@
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .nav {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 10;
-      background: rgba(11,16,32,.88);
+      background: rgba(0, 0, 0, 0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -48,12 +59,29 @@
       align-items: center;
     }
 
-    .logo { font-size: 20px; font-weight: 800; }
-    .logo span { color: var(--accent); }
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+    }
 
-    .links { display: flex; gap: 24px; }
-    .links a { color: var(--muted); font-size: 14px; }
-    .links a:hover { color: var(--text); }
+    .logo span {
+      color: var(--accent);
+    }
+
+    .links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .links a:hover {
+      color: var(--accent);
+    }
 
     .hero {
       min-height: 100vh;
@@ -64,15 +92,17 @@
       padding: 120px 24px 80px;
     }
 
-    .heroBox { max-width: 780px; }
+    .heroBox {
+      max-width: 780px;
+    }
 
     .tag {
       display: inline-block;
       padding: 7px 13px;
-      border: 1px solid rgba(56,189,248,.35);
+      border: 1px solid rgba(34, 211, 238, 0.35);
       border-radius: 999px;
       color: var(--accent);
-      background: rgba(56,189,248,.08);
+      background: rgba(34, 211, 238, 0.08);
       font-size: 13px;
       margin-bottom: 22px;
     }
@@ -85,7 +115,11 @@
     }
 
     h1 span {
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      background: linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent2)
+      );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -98,7 +132,11 @@
       margin-bottom: 30px;
     }
 
-    .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
     .button {
       display: inline-block;
@@ -106,12 +144,24 @@
       border-radius: 9px;
       border: 1px solid var(--line);
       background: var(--card);
+      color: var(--text);
       font-weight: 700;
+      transition: border-color 0.2s ease,
+                  transform 0.2s ease;
+    }
+
+    .button:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
     }
 
     .button.primary {
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      color: #07111f;
+      background: linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent2)
+      );
+      color: #000000;
       border: none;
     }
 
@@ -143,18 +193,37 @@
       gap: 18px;
     }
 
-    .skill, .project, .education, .training {
+    .skill,
+    .project,
+    .education,
+    .training {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 14px;
       padding: 24px;
+      transition: border-color 0.2s ease,
+                  transform 0.2s ease;
     }
 
-    .skill h3, .project h3, .education h3, .training h3 {
+    .skill:hover,
+    .project:hover,
+    .education:hover,
+    .training:hover {
+      border-color: rgba(34, 211, 238, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .skill h3,
+    .project h3,
+    .education h3,
+    .training h3 {
       margin-bottom: 9px;
     }
 
-    .skill p, .project p, .education p, .training p {
+    .skill p,
+    .project p,
+    .education p,
+    .training p {
       color: var(--muted);
     }
 
@@ -171,12 +240,17 @@
       font-weight: 700;
     }
 
-    .education, .training {
+    .education,
+    .training {
       margin-bottom: 16px;
     }
 
     .contactBox {
-      background: linear-gradient(135deg, rgba(56,189,248,.10), rgba(129,140,248,.10));
+      background: linear-gradient(
+        135deg,
+        rgba(34, 211, 238, 0.10),
+        rgba(59, 130, 246, 0.10)
+      );
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 35px;
@@ -194,9 +268,14 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       color: var(--muted);
+      transition: color 0.2s ease,
+                  border-color 0.2s ease;
     }
 
-    .contactItems a:hover { color: var(--text); }
+    .contactItems a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
 
     footer {
       text-align: center;
@@ -206,8 +285,8 @@
       font-size: 14px;
     }
 
-
     /* Desktop layout improvements */
+
     @media (min-width: 761px) {
       .navin {
         max-width: 1180px;
@@ -247,7 +326,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .skill, .project, .education, .training {
+      .skill,
+      .project,
+      .education,
+      .training {
         min-height: 150px;
       }
 
@@ -257,19 +339,41 @@
     }
 
     @media (max-width: 760px) {
-      .links { display: none; }
-      .skills, .projects { grid-template-columns: 1fr; }
-      section { padding: 70px 20px; }
-      .hero { padding-left: 20px; padding-right: 20px; }
-      h1 { letter-spacing: -1px; }
+      .links {
+        display: none;
+      }
+
+      .skills,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .contactBox {
+        padding: 24px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav class="nav">
     <div class="navin">
       <a class="logo" href="#home">Sahil Siyan</a>
+
       <div class="links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -281,26 +385,33 @@
   </nav>
 
   <main>
+
     <header class="hero" id="home">
       <div class="heroBox">
+
         <div class="tag">Computer Science Graduate</div>
+
         <h1>Sahil <span>Siyan</span></h1>
+
         <p class="intro">
           AWS and Linux focused Computer Science graduate with foundational knowledge
           in cloud computing, DevOps, Python programming, Linux administration,
           networking and cloud infrastructure.
         </p>
+
         <div class="buttons">
           <a class="button primary" href="#projects">View Projects</a>
           <a class="button" href="Sahil_Siyan_Resume.pdf" target="_blank">View Resume</a>
           <a class="button" href="#contact">Contact Me</a>
         </div>
+
       </div>
     </header>
 
     <section id="about">
       <h2 class="title">About Me</h2>
       <p class="subtitle">Cloud, Linux and infrastructure focused.</p>
+
       <p class="about">
         I am a B.Tech Computer Science Engineering graduate interested in cloud
         infrastructure, Linux administration, automation and DevOps. My hands on
@@ -314,38 +425,48 @@
       <p class="subtitle">Technologies and fundamentals I work with.</p>
 
       <div class="skills">
+
         <div class="skill">
           <h3>AWS</h3>
           <p>EC2, S3, IAM, VPC, Lambda, RDS, CloudWatch</p>
         </div>
+
         <div class="skill">
-          <h3>DevOps & Tools</h3>
+          <h3>DevOps &amp; Tools</h3>
           <p>Linux commands, Git fundamentals and DevOps basics</p>
         </div>
+
         <div class="skill">
           <h3>Programming</h3>
           <p>Python, Java, C</p>
         </div>
+
         <div class="skill">
           <h3>Operating Systems</h3>
           <p>Linux with RHEL basics and Windows</p>
         </div>
+
         <div class="skill">
           <h3>Networking</h3>
           <p>TCP/IP, SSH and DNS basics</p>
         </div>
+
         <div class="skill">
           <h3>Web</h3>
           <p>HTML and CSS</p>
         </div>
+
       </div>
     </section>
 
     <section id="projects">
       <h2 class="title">Projects</h2>
-      <p class="subtitle">Academic and personal projects from my cloud and DevOps learning.</p>
+      <p class="subtitle">
+        Academic and personal projects from my cloud and DevOps learning.
+      </p>
 
       <div class="projects">
+
         <article class="project">
           <div class="projectNumber">01</div>
           <h3>AWS Cloud Infrastructure Setup</h3>
@@ -381,11 +502,12 @@
             including Git and server management.
           </p>
         </article>
+
       </div>
     </section>
 
     <section id="education">
-      <h2 class="title">Education & Training</h2>
+      <h2 class="title">Education &amp; Training</h2>
       <p class="subtitle">Academic background and professional learning.</p>
 
       <div class="education">
@@ -395,7 +517,7 @@
       </div>
 
       <div class="training">
-        <h3>AWS & Linux / DevOps Training</h3>
+        <h3>AWS &amp; Linux / DevOps Training</h3>
         <p>
           AWS Cloud Computing coursework covering EC2, S3, IAM, VPC, Lambda, RDS
           and CloudWatch, along with beginner level DevOps and Linux administration.
@@ -403,7 +525,7 @@
       </div>
 
       <div class="training">
-        <h3>Internships & Workshops</h3>
+        <h3>Internships &amp; Workshops</h3>
         <p>
           Data Science internship at PACE LAB, Artificial Intelligence and Machine
           Learning internship at ICT Academy, Python bootcamp, and Cyber Security
@@ -415,9 +537,11 @@
     <section id="contact">
       <div class="contactBox">
         <h2 class="title">Let's Connect</h2>
+
         <p class="subtitle">
           Open to entry level opportunities in Cloud, Linux, DevOps and related IT roles.
         </p>
+
         <div class="contactItems">
           <a href="mailto:Sahilsiyann@gmail.com">📧 Email</a>
           <a href="https://www.linkedin.com/in/sahilsiyan" target="_blank" rel="noopener">💼 LinkedIn</a>
@@ -426,6 +550,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
